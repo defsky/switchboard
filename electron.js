@@ -18,8 +18,11 @@ app.on('window-all-closed', function onWindowAllClosed() {
 
 app.on('ready', function onReady() {
     mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600
+        title: 'Switchboard',
+        width: 1280,
+        height: 960,
+        minWidth: 1024,
+        minHeight: 768
     });
 
     delete mainWindow.module;

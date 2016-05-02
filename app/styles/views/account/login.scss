@@ -1,0 +1,18 @@
+@import 'susy';
+
+
+.login-container {
+  @include container(18em);
+
+  top: 45%;
+  left: 50%;
+  position: fixed;
+  text-align: center;
+  transform: translate(-50%, -50%);
+
+
+  h2 {
+    color: scale-color(black, $lightness: 20%);
+    font-family: TypoGraphica, sans-serif;
+  }
+}

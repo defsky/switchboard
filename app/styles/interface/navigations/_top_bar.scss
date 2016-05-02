@@ -1,0 +1,407 @@
+body {
+  &.spree-index {
+    .top-bar .bottom-nav a {
+      color: white;
+    }
+  }
+
+  &.spree-products-show,
+  &.spree-retailer-request
+   {
+    nav.top-bar {
+      &.shrunk-nav > div {
+        opacity: 1;
+      }
+
+      .bottom-nav {
+        display: none;
+      }
+    }
+
+    .sticky-bottom-nav {
+      display: block;
+    }
+  }
+
+  &.spree-retailer-request {
+    nav.top-bar {
+      .customer-login {
+        display: none;
+      }
+
+      .retailer-login {
+        display: inline;
+      }
+    }
+  }
+}
+
+nav.top-bar {
+  width: 100%;
+  padding: 1.5em 0;
+  position: absolute;
+
+  &.shrunk-nav {
+    .background-and-border {
+      transform: translateY(0);
+    }
+
+    & > div {
+      height: 4em;
+      padding-top: 1rem;
+      opacity: 0;
+
+      & > a > svg {
+        width: 10.875rem;
+      }
+    }
+
+    .bottom-nav {
+      transform: translateY(0);
+      background-color: rgba(white, 0.92);
+    }
+  }
+
+  form {
+    display: inline-block;
+    vertical-align: text-bottom;
+
+    button {
+      vertical-align: middle;
+      padding: 0;
+      margin-right: 0.5rem;
+      background: none;
+      transition: 300ms ease-out;
+
+      &:hover,
+      &:focus {
+        transform: scale(1.2);
+      }
+    }
+
+    svg {
+      display: block;
+      width: auto;
+      height: 1.5rem;
+    }
+
+    input {
+      @include autofill-style-transparent-bg($medium-gray, white);
+      display: inline-block;
+      vertical-align: middle;
+      height: 1.5rem;
+      padding: 0.25rem;
+      margin: 0;
+      background: none;
+      border: none;
+      border-bottom: 1px solid transparent;
+      transition: 300ms ease-out;
+
+      &:hover,
+      &:focus {
+        border-color: $cloud;
+      }
+    }
+  }
+
+  a {
+    @extend .navigation-anchor;
+    color: $medium-gray;
+    cursor: pointer;
+  }
+
+  .retailer-login {
+    display: none;
+  }
+
+  .background {
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: translateY(-100%);
+    transition: 400ms;
+  }
+
+  .bottom-shadow {
+    transform: translateY(-100%);
+    height: 10px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    // top: 0;
+    top: calc(100% + 10px);
+    overflow: hidden;
+    // position: absolute;
+    // bottom: 0;
+    // left: 0;
+    // right: 0;
+
+    &:after {
+      content: '';
+      display: block;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 100%;
+      width: 85%;
+      height: 200%;
+      margin: auto;
+      position: absolute;
+      left: 0;
+      right: 0;
+      // top: 100%;
+      top: -200%;
+    }
+  }
+
+  svg {
+    display: inline-block;
+    width: 1.5rem;
+    vertical-align: top;
+  }
+
+  .btn-menu {
+    margin-right: 1.5em;
+    display: inline-block;
+    padding: 0;
+    outline: 0;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    vertical-align: middle;
+    z-index: 999;
+
+    span.line {
+      margin-bottom: 0.375rem;
+    }
+
+    span {
+      display: block;
+      height: 0.187rem;
+      background-color: $medium-gray;
+      transition: all 200ms linear;
+
+      &.line1 {
+        width: 1.75em;
+      }
+
+      &.line2 {
+        width: 1.25em;
+      }
+
+      &.line3 {
+        width: 1.75em;
+      }
+    }
+
+    // &.btn-menu-open {
+    //   span {
+    //     background-color: #000;
+    //   }
+    //
+    //   .line1, .line2, .line3 {
+    //     width: 2.375em;
+    //   }
+    // }
+
+    @media only screen and (min-width: 800px) {
+      &:hover {
+        span {
+          background-color: $dark-pink;
+        }
+
+        .line1, .line2, .line3 {
+          width: 2.375em;
+        }
+      }
+    }
+  }
+
+  & > div {
+    height: 6em;
+    padding: 0 2.5%;
+    padding-top: 1.5rem;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    z-index: 8;
+    transition: 400ms;
+
+    ul {
+      display: inline-block;
+      float: right;
+
+      li {
+        display: inline-block;
+
+        &:first-of-type {
+          margin-right: 1.5em;
+        }
+
+        svg {
+          margin-right: 0.5rem;
+        }
+
+        a {
+          transition: 300ms ease-out;
+
+          path {
+            transition: 300ms ease-out;
+          }
+
+          @media only screen and (min-width: 800px) {
+            &:hover {
+              color: $dark-pink;
+
+              path {
+                stroke: $dark-pink;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    & > a {
+      @include horizontally-centered;
+
+      & > svg {
+        // width: 12.875rem;
+        width: 14.875rem;
+        transition: 400ms;
+      }
+    }
+  }
+
+  .bottom-nav {
+    padding: 1.125em 0;
+    transform: translateY(6em);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-color: transparent;
+    // border-bottom: 1px solid transparent;
+    z-index: 8;
+    transition: 400ms;
+    backface-visibility: hidden;
+
+    &.show-background {
+      background-color: rgba(white, 1);
+      // border-bottom: 1px solid #f1f1f1;
+
+      .bottom-shadow {
+        opacity: 1;
+      }
+
+      a {
+        color: $dark-gray;
+      }
+    }
+
+    .bottom-shadow {
+      opacity: 0;
+      transition: 400ms;
+    }
+
+    a {
+      position: relative;
+      z-index: 1;
+      transition: all 0.3s ease-in-out;
+
+      &:hover,
+      &:focus,
+      &.active {
+        color: $dark-pink;
+      }
+    }
+
+    li {
+      display: inline-block;
+
+      & + li {
+        margin-left: 6em;
+      }
+    }
+  }
+
+  @media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .bottom-nav li {
+      margin-right: 2.5em;
+    }
+
+    &.shrunk-nav & > div > a > svg {
+      width: 9.6875rem;
+    }
+
+    & > div > a > svg {
+      // width: 9.6875rem;
+      width: 12.6875rem;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    &.shrunk-nav {
+      & > div {
+        opacity: 1;
+
+        & > a > svg {
+          width: 8.6875rem;
+        }
+      }
+    }
+
+    & > div {
+      height: 5em;
+
+      form {
+        display: none;
+      }
+
+      & > a > svg {
+        // width: 8.5625rem;
+        width: 10.5625rem;
+      }
+
+      ul li {
+        &:last-of-type span {
+          display: none;
+        }
+      }
+    }
+
+    .bottom-nav {
+      display: none;
+    }
+  }
+
+  @media only screen and (max-width: 414px) {
+    & > div {
+      ul li {
+        &:first-of-type {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    &.spree-products-show,
+    &.spree-retailer-request
+     {
+      nav.top-bar {
+        &.shrunk-nav > div {
+          height: 3.5em;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,169 @@
+footer {
+  @include container(100%);
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+
+  background-color: $button-background-color;
+
+  p {
+    @include span(6);
+    margin: 0.75rem 0;
+    color: #ecf0f1;
+
+    box-sizing: border-box;
+
+    &:last-of-type {
+      text-align: right;
+      @include span(6 last);
+    }
+  }
+}
+
+// footer {
+//   @include container(90%);
+//   height: 9em;
+//   padding: 1.5em 1em;
+//   position: relative;
+//   border-top: 1px solid $stroke-gray;
+//
+//   small,
+//   .fine-print {
+//     display: block;
+//     letter-spacing: 0.05em;
+//     margin-bottom: 1.5rem;
+//   }
+//
+//   .fine-print {
+//     display: inline-block;
+//     color: $dark-gray;
+//     transition: 300ms ease-out;
+//
+//     &:hover,
+//     &:focus {
+//       color: $dark-pink;
+//     }
+//   }
+//
+//   p {
+//     color: $medium-gray;
+//   }
+//
+//   .icons {
+//     position: absolute;
+//     right: 0.5em;
+//
+//     svg {
+//       width: 1.5rem;
+//
+//       .fb-circle-icon-st2, .fb-circle-icon-st4, path {
+//         transition: all 400ms;
+//       }
+//     }
+//
+//     li {
+//       display: inline-block;
+//       margin-right: 0.5em;
+//
+//       &:last-of-type {
+//         margin-right: 0;
+//       }
+//
+//       &:first-of-type {
+//         a:hover {
+//           .fb-circle-icon-st2, .fb-circle-icon-st4 {
+//             fill: $mineral;
+//           }
+//         }
+//       }
+//
+//       &:nth-of-type(2) {
+//         a:hover {
+//           path {
+//             fill: $light-blue;
+//           }
+//         }
+//       }
+//
+//       &:last-of-type {
+//         a:hover {
+//           path {
+//             fill: $dark-pink;
+//           }
+//         }
+//       }
+//     }
+//   }
+//
+//   & > div {
+//     box-sizing: border-box;
+//     height: 100%;
+//   }
+//
+//   & > div:first-of-type {
+//     @include span(4.1);
+//     padding-right: 1.5em;
+//     border-right: 1px solid $stroke-gray;
+//
+//     & > div {
+//       max-width: 29em;
+//     }
+//
+//     input:first-of-type {
+//       width: 100%;
+//     }
+//
+//     input:last-of-type {
+//       display: none;
+//     }
+//   }
+//
+//   & > div:nth-of-type(2) {
+//     @include span(2.6);
+//     border-right: 1px solid $stroke-gray;
+//
+//     a {
+//       @include adjust-font-size-to(16px);
+//       font-weight: $font-weight-regular;
+//       font-style: normal;
+//       letter-spacing: initial;
+//       color: $medium-gray;
+//     }
+//   }
+//
+//   & > div:last-of-type {
+//     @include span(5.3 last);
+//   }
+//
+//   &.small-footer {
+//     & {
+//       border-top: 1px solid $stroke-gray;
+//     }
+//
+//     & > div:first-of-type,
+//     & > div:nth-of-type(2),
+//     & > div:last-of-type {
+//       display: none;
+//     }
+//   }
+//
+//   @media only screen and (max-width: 768px) {
+//     .icons {
+//       position: initial;
+//       margin-bottom: 1.5em;
+//     }
+//
+//     & > div:first-of-type,
+//     & > div:nth-of-type(2) {
+//       @include span(12);
+//       margin-bottom: 3em;
+//       border: none;
+//     }
+//
+//     & > div:last-of-type {
+//       @include span(12);
+//     }
+//   }
+// }

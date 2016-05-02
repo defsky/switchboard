@@ -1,0 +1,224 @@
+// Button Mixin
+@mixin button($button-color, $button-background-color) {
+  color: $button-color;
+  background-color: $button-background-color;
+
+  &:hover {
+    color: scale_color($button-color, $lightness: -20%);
+    background-color: scale_color($button-background-color, $lightness: -20%);
+  }
+}
+
+// Icon Mixin
+@mixin icon($icon-color, $icon-color-hover) {
+  color: $icon-color;
+
+  &:hover {
+    color: $icon-color-hover;
+  }
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content;}
+  &:-moz-placeholder           {@content;}
+  &::-moz-placeholder          {@content;}
+  &:-ms-input-placeholder      {@content;}
+}
+
+@mixin autofill-style($color, $background-color) {
+  &:-webkit-autofill {
+    -webkit-text-fill-color: $color !important;
+    -webkit-box-shadow: 0 0 0 100px $background-color inset; // Changes autofill background
+  }
+}
+
+@mixin autofill-style-transparent-bg($color, $background-color-fallback) {
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-text-fill-color: $color !important;
+
+    // Changes autofill background. Fallback for when time runs out on the transition below.
+    -webkit-box-shadow: 0 0 0 100px $background-color-fallback inset;
+
+    // Simulates transparent background
+    transition: border-color 400ms, background-color ease-in-out 0s, box-shadow ease-in-out 0s;
+    transition-delay: 0s, 5000s, 5000s
+  }
+}
+
+@mixin vertically-centered {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin horizontally-centered {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin totally-centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin set-size-centered {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@mixin fit-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@mixin reset-anchor-styles {
+  font-style: normal;
+  font-size: $base-font-size;
+  line-height: 1.5rem;
+}
+
+@mixin panel($color, $nth-child) {
+  li {
+    background-color: $color;
+    opacity: 0.75;
+    border-bottom: 3px solid white;
+
+    small, h3 {
+      color: white;
+      opacity: 0.55;
+    }
+
+    &:nth-of-type(#{$nth-child}) {
+      background-color: transparent;
+      opacity: 1;
+      z-index: 3;
+
+      small, h3 {
+        color: black;
+        opacity: 1;
+      }
+    }
+
+    a {
+      bottom: -3px;
+    }
+  }
+
+  li:nth-of-type(odd) {
+    border-right: 3px solid white;
+
+    a {
+      right: -3px;
+    }
+  }
+
+  li:nth-of-type(7),
+  li:nth-of-type(8) {
+    border-bottom: 1px solid transparent;
+
+    a {
+      bottom: -1px;
+    }
+  }
+
+  svg:nth-of-type(#{$nth-child}) {
+    opacity: 1;
+    z-index: 2;
+  }
+}
+
+@mixin svg-position($max-width, $top, $right, $bottom, $left) {
+  max-width: $max-width;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+%slick-dots {
+  .slick-dots {
+    width: auto;
+    position: absolute;
+    top: 50%;
+    right: 1.5em;
+    bottom: auto;
+    transform: translateY(-50%);
+
+    li {
+      display: block;
+      width: 0.75rem;
+      height: 0.75rem;
+      margin-bottom: 1em;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+
+      button {
+        width: 100%;
+        height: 100%;
+
+        &::before {
+          content: '';
+          width: 100%;
+          height: 100%;
+          line-height: 0.3rem;
+          color: transparent;
+          opacity: 1;
+          border: 1px solid white;
+          border-radius: 100%;
+          box-sizing: border-box;
+          transition: 300ms ease-out;
+        }
+      }
+
+      &.slick-active button,
+      button:hover,
+      button:focus {
+        &::before {
+          background: white;
+          border-color: white;
+        }
+      }
+    }
+  }
+}
+
+@mixin quick-view-dots {
+  @extend %slick-dots;
+}
+
+@mixin show-carousel-dots {
+  @extend %slick-dots;
+
+  .slick-dots {
+    top: auto;
+    left: 60%;
+    right: auto;
+    bottom: 1.75em;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+
+  .slick-dots li {
+    display: inline-block;
+    margin: 0 1.5em 0 0;
+
+    &:last-of-type {
+      margin: 0;
+    }
+  }
+}

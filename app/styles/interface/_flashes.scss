@@ -1,0 +1,34 @@
+.alert-box {
+  padding: 1rem;
+  margin-bottom: 0;
+  font-weight: normal;
+  letter-spacing: 0.025em;
+
+  &:last-child {
+    margin-bottom: 1.5rem;
+  }
+
+  &.alert {
+    background-color: rgba($alert-background-color, 0.5);
+    border: 1px solid $alert-border-color;
+  }
+
+  &.success {
+    background-color: rgba($success-background-color, 0.5);
+    border: 1px solid $success-border-color;
+  }
+
+  &.warning {
+    background-color: rgba($light-pink, 0.5);
+    border: 1px solid $light-pink;
+  }
+
+  .alert-box-content {
+    opacity: 0.0;
+  }
+
+  .close-button {
+    color: $close-color;
+    opacity: 0.6;
+  }
+}

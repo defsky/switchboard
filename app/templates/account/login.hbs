@@ -1,0 +1,22 @@
+
+<div class="login-container">
+  <h2>Switchboard</h2>
+  <p>Sign in using your World of Warcraft game master account.</p>
+
+  <form {{action 'signIn' on='submit'}}>
+    <fieldset>
+      {{icon-input value=account icon='shield' placeholder='Game master account' autofocus='autofocus' disabled=inputsDisabled}}
+
+      {{icon-input type='password' value=password icon='lock' placeholder='Password' disabled=inputsDisabled}}
+
+      <div class="actions">
+        <div class="action right">
+          {{submit-button loading=loading text="Login"}}
+          <!-- {{input type='submit' value="Login"}} -->
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
+
+</div>
