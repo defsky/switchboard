@@ -1,0 +1,29 @@
+
+<div class="logo">
+  <h1>Switchboard</h1>
+</div>
+<!-- Menu toggle for mobile version -->
+<!-- <button class="action action--open" aria-label="Open Menu"><span class="icon icon--menu"></span></button> -->
+<!-- Close button for mobile version -->
+<!-- <button class="action action--close" aria-label="Close Menu"><span class="icon icon--cross"></span></button> -->
+<nav class="menu">
+  <div class="menu__wrap">
+    <ul data-menu="main" class="menu__level">
+      <li class="menu__item">
+        <a href="#" class="menu__link">Dashboard</a>
+        {{#link-to 'tickets.index' class='menu__link'}}Tickets{{/link-to}}
+        {{#link-to 'conversations.index' class="menu__link"}}Conversations{{/link-to}}
+        {{#link-to 'accounts.index' class='menu__link' data-submenu='accounts'}}Accounts{{/link-to}}
+        {{#link-to 'realms.index' class='menu__link' data-submenu='realms'}}Realm Status{{/link-to}}
+        {{#link-to 'crashes.index' class="menu__link" data-submenu='crashes'}}Crashes{{/link-to}}
+      </li>
+    </ul>
+
+
+    <ul data-menu="realms" class="menu__level">
+      <li class="menu__item">
+        {{#link-to 'realms.new' class="menu__link"}}Create Realm{{/link-to}}
+      </li>
+    </ul>
+  </div>
+</nav>

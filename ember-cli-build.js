@@ -14,6 +14,10 @@ module.exports = function(defaults) {
     }
   });
 
+  app.import('vendor/sidebar/modernizr-custom.js');
+  app.import('vendor/sidebar/classie.js');
+  app.import('vendor/sidebar/sidebar.js');
+
   app.import('bower_components/font-awesome/fonts/fontawesome-webfont.eot', { destDir: 'fonts' });
   app.import('bower_components/font-awesome/fonts/fontawesome-webfont.woff', { destDir: 'fonts' });
   app.import('bower_components/font-awesome/fonts/fontawesome-webfont.ttf', { destDir: 'fonts' });
